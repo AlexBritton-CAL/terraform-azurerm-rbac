@@ -34,6 +34,7 @@ variable "resource_type" {
 
 variable "context" {
   type    = string
+  description = "The security context to apply to this resource"
   default = "prod"
 
   validation {
