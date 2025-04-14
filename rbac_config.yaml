@@ -1,0 +1,61 @@
+---
+rbac:
+  keyvault:
+    pr:
+      default_roles:
+      - Key Vault Reader
+      - Key Vault Secrets Officer
+      - Key Vault Certificates Officer
+      elevated_roles: 
+    nonprod: 
+      default_roles:
+      - Key Vault Reader
+      elevated_roles: 
+      - Key Vault Secrets Officer
+      - Key Vault Certificates Officer
+    prod:
+      default_roles:
+      - Key Vault Reader
+      elevated_roles: 
+      - Key Vault Secrets Officer
+      - Key Vault Certificates Officer
+
+  aks:
+    nonprod:
+      default_roles:
+      - Azure Kubernetes Service RBAC Reader
+      - Azure Kubernetes Service Cluster User Role
+      elevated_roles: 
+      - Azure Kubernetes Service RBAC Writer
+      - Azure Kubernetes Service Cluster User Role
+    prod:
+      elevated_roles: 
+      - Azure Kubernetes Service RBAC Writer
+      - Azure Kubernetes Service Cluster User Role
+
+  servicebus:
+    pr:
+      default_roles:
+      - Azure Service Bus Data Owner
+    nonprod: 
+      elevated_roles:
+      - Azure Service Bus Data Receiver 
+    prod:
+      elevated_roles: 
+      - Azure Service Bus Data Receiver
+
+  storageaccount:
+    pr:
+      default_roles:
+      - Storage Blob Data Contributor
+      elevated_roles: 
+    nonprod: 
+      default_roles:
+      - Storage Blob Data Reader
+      elevated_roles:
+      - Storage Blob Data Contributor
+    prod:
+      elevated_roles:
+      - Storage Blob Data Contributor
+
+
