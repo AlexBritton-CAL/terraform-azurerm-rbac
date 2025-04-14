@@ -25,12 +25,12 @@ module "rbac_aks" {
 
 ## Inputs
 
-| Name | Description | Default Value |
+| Name | Description | Default Value / Notes |
 | --- | --- | --- |
 | elevated_groups | Set of elevated group names | [ ] |   
 | default_groups | Set of default group names | [ ] |   
 | additional_elevated_groups | Optional: Set of additiaonl Elevated Groups Names | [ ] |   
 | additional_default_groups | Optional: Set of additiaonl Default Groups Names | [ ] |   
-| resource_type | Resource Type | null |   
-| context | The security context to apply to this resource | The context must be 'prod', 'nonprod' or'pr'" |  
+| resource_type | Resource Type | See list [here](variables.tf#L24) |   
+| context | The security context to apply to this resource | The context must be [one of](variables.tf#L37) |  
 | resource_id | The ID of the resource (usually the resource group) |  
