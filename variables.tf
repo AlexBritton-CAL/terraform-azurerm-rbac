@@ -23,13 +23,18 @@ variable "additional_default_groups" {
 locals {
   resource_types = ["aks", "storageaccount", "servicebus", "keyvault"]
 }
+
 variable "resource_type" {
   type = string
 
   validation {
     condition     = contains(local.resource_types, var.resource_type)
-    error_message = "The context must be a valid resource type (see readme for details)"
+    error_message = "Must be a valid resource type (see readme for details)"
   }
+}
+
+locals {
+  context = ["prod", "nonprod", "pr"]
 }
 
 variable "context" {
@@ -38,8 +43,8 @@ variable "context" {
   default = "prod"
 
   validation {
-    condition     = contains(["prod", "nonprod", "pr"], var.context)
-    error_message = "The context must be 'prod', 'nonprod' or'pr'"
+    condition     = contains(local.context, var.context)
+    error_message = "Must be a vaild context (see readme for details)"
   }
 }
 
