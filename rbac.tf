@@ -11,14 +11,14 @@ locals {
   default_groups  = toset(var.default_groups)
 
   elevated_rbac = distinct(flatten([
-    for role in setunion(local.elevated_roles, local.default_roles) : [
+    for role in setunion(local.elevated_roles, var.additional_elevated_groups, local.default_roles) : [
       for group in local.elevated_groups : {
         role  = role
         group = group
   }]]))
 
   default_rbac = distinct(flatten([
-    for role in local.default_roles : [
+    for role in setunion(local.default_roles, var.additional_default_groups) : [
       for group in local.default_groups : {
         role  = role
         group = group
